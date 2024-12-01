@@ -1,8 +1,6 @@
 #include<stdio.h>
 int main(){
-    int a;
-    int b;
-    int result;
+    int a,b,result;
 
     printf("Enter the value of a :: ");
     scanf("%d",&a);
