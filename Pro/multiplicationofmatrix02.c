@@ -9,10 +9,14 @@ int main(){
     scanf("%d",&p);
     printf("Enter The Column of Second Matrix :: ");
     scanf("%d",&q);
-    
+    int res[m][q];
+    for(int x=0;x<m;x++){
+        for(int y=1;y<q;y++){
+            res[x][y] = 0;
+        }
+    }
     int a[m][n];
     int b[p][q];
-    int res[m][q] = {};
     printf("First Matrix ::\n");
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
