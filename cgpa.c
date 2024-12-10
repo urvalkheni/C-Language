@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
 #define NUM_STUDENTS 10
-
 // Structure to store student data
 struct Student {
     char name[50];
@@ -12,7 +10,6 @@ struct Student {
     char grade;
     char result[20];
 };
-
 // Function to calculate percentage and grade
 void calculateGrade(struct Student *student) {
     float total = 0;
@@ -35,11 +32,9 @@ void calculateGrade(struct Student *student) {
         strcpy(student->result, "Fail");
     }
 }
-
 // Main function
 int main() {
     struct Student students[NUM_STUDENTS];
-
     printf("Enter details for %d students:\n", NUM_STUDENTS);
     for (int i = 0; i < NUM_STUDENTS; i++) {
         printf("\nStudent %d:\n", i + 1);
@@ -54,7 +49,6 @@ int main() {
         }
         calculateGrade(&students[i]);
     }
-
     printf("\nStudent Results:\n");
     printf("-------------------------------------------------------------\n");
     printf("Roll No | Name           | Percentage | Grade | Result       \n");
@@ -68,6 +62,5 @@ int main() {
                students[i].result);
     }
     printf("-------------------------------------------------------------\n");
-
     return 0;
 }
