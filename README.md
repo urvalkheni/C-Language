@@ -12,7 +12,7 @@ Welcome to my C programming repository! This repository contains a collection of
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/urvalkheni/C-Language.git
+   git clone https://github.com/urvalkheni/C-Language/Code.git
    ```
 2. Navigate to the desired folder and compile the C program using a C compiler like `gcc`:
    ```bash
