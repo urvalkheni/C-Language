@@ -10,7 +10,6 @@ int main(){
     gets(str1);
     strcpy(str2,str1);
     x = strlen(str1);
-    printf("%d\n",x);
    for (i = 0, j = x - 1; i < j; i++, j--) {
         temp = str1[i];
         str1[i] = str1[j];
