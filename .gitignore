@@ -1,0 +1,68 @@
+# ---------------------------
+# C Language .gitignore
+# ---------------------------
+
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executable files
+*.exe
+*.out
+*.app
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Profiling files
+*.gcda
+*.gcno
+*.gcov
+*.prof
+*.profraw
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# IDE and Editor directories
+.vscode/
+.idea/
+.ccls-cache/
+.clangd/
+.cache/
+*.code-workspace
+
+# Dependency and build directories
+build/
+Build/
+bin/
+obj/
+out/
+dist/
+Debug/
+Release/
+
+# macOS and Windows system files
+.DS_Store
+Thumbs.db
+desktop.ini
