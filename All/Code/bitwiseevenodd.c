@@ -1,5 +1,6 @@
 /*
- * Advanced Bitwise Operations & Number Analysis v2.0
+ * Advanced Bitwise Operations & Number Analysis v2.1
+ * Modified: 2025-11-15
  * Features: Bitwise operators, bit manipulation,
  *           binary operations, parity checking
  */
@@ -111,7 +112,7 @@ void displayMenu() {
 void printBinary(unsigned int n) {
     for(int i = 31; i >= 0; i--) {
         printf("%d", (n >> i) & 1);
-        if(i % 8 == 0) printf(" ");
+        if(i % 8 == 0 && i != 0) printf(" ");
     }
 }
 
@@ -196,7 +197,11 @@ void leftShift() {
     scanf("%d", &num);
     printf("Enter shift amount: ");
     scanf("%d", &shift);
-    
+    if(shift < 0 || shift > 31) {
+        printf("Invalid shift amount (0-31).\n");
+        return;
+    }
+
     int result = num << shift;
     
     printf("\n--- Left Shift ---\n");
@@ -212,7 +217,11 @@ void rightShift() {
     scanf("%d", &num);
     printf("Enter shift amount: ");
     scanf("%d", &shift);
-    
+    if(shift < 0 || shift > 31) {
+        printf("Invalid shift amount (0-31).\n");
+        return;
+    }
+
     int result = num >> shift;
     
     printf("\n--- Right Shift ---\n");

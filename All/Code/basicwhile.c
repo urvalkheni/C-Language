@@ -1,5 +1,6 @@
 /*
- * Advanced Loop Demonstrator & Iterator v2.0
+ * Advanced Loop Demonstrator & Iterator v2.1
+ * Modified: 2025-11-15
  * Features: Multiple loop types, patterns, algorithms,
  *           loop analysis and performance comparison
  */
@@ -111,6 +112,10 @@ void basicWhileLoop() {
     int n, i = 1;
     printf("\nEnter limit: ");
     scanf("%d", &n);
+    if(n <= 0) {
+        printf("Invalid limit (must be > 0).\n");
+        return;
+    }
     
     printf("\n--- Basic While Loop ---\n");
     printf("Counting from 1 to %d:\n", n);
@@ -126,7 +131,11 @@ void doWhileLoop() {
     int n, i = 1;
     printf("\nEnter limit: ");
     scanf("%d", &n);
-    
+    if(n <= 0) {
+        printf("Invalid limit (must be > 0).\n");
+        return;
+    }
+
     printf("\n--- Do-While Loop ---\n");
     printf("Counting (executes at least once):\n");
     
@@ -141,7 +150,11 @@ void forLoop() {
     int n;
     printf("\nEnter limit: ");
     scanf("%d", &n);
-    
+    if(n <= 0) {
+        printf("Invalid limit (must be > 0).\n");
+        return;
+    }
+
     printf("\n--- For Loop ---\n");
     printf("Counting from 1 to %d:\n", n);
     
@@ -232,7 +245,11 @@ void multiplicationTable() {
     int num;
     printf("\nEnter number: ");
     scanf("%d", &num);
-    
+    if(num == 0) {
+        printf("\nZero table is trivial (all zeros).\n");
+        return;
+    }
+
     printf("\n--- Multiplication Table of %d ---\n", num);
     
     for(int i = 1; i <= 10; i++) {

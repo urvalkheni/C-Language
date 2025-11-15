@@ -1,5 +1,6 @@
 /*
- * Advanced Box & Border Pattern Generator v2.0
+ * Advanced Box & Border Pattern Generator v2.1
+ * Modified: 2025-11-15
  * Features: Various box patterns, borders, frames,
  *           customizable designs, ASCII art boxes
  */
@@ -124,6 +125,10 @@ void hollowBox() {
     scanf("%d", &rows);
     printf("Enter columns: ");
     scanf("%d", &cols);
+    if(rows < 2 || cols < 2) {
+        printf("Rows and columns must be >= 2 for a hollow box.\n");
+        return;
+    }
     
     printf("\n--- Hollow Box ---\n\n");
     
@@ -142,6 +147,10 @@ void doubleBox() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n < 3) {
+        printf("Size must be >= 3 for double border.\n");
+        return;
+    }
     
     printf("\n--- Double Border Box ---\n\n");
     
@@ -167,6 +176,10 @@ void borderedBox() {
     scanf("%d", &cols);
     printf("Enter border character: ");
     scanf(" %c", &border);
+    if(rows < 1 || cols < 1) {
+        printf("Rows and columns must be positive.\n");
+        return;
+    }
     
     printf("\n--- Bordered Box ---\n\n");
     
@@ -185,6 +198,10 @@ void nestedBoxes() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 50) {
+        printf("Size must be in range 1..50.\n");
+        return;
+    }
     
     printf("\n--- Nested Boxes ---\n\n");
     
@@ -203,6 +220,10 @@ void diamondBox() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 40) {
+        printf("Size must be in range 1..40.\n");
+        return;
+    }
     
     printf("\n--- Diamond Box ---\n\n");
     
@@ -223,6 +244,10 @@ void pyramidBox() {
     int n;
     printf("\nEnter rows: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 50) {
+        printf("Rows must be in range 1..50.\n");
+        return;
+    }
     
     printf("\n--- Pyramid Box ---\n\n");
     
@@ -244,6 +269,10 @@ void customBox() {
     scanf(" %c", &border);
     printf("Enter fill character: ");
     scanf(" %c", &fill);
+    if(rows <= 0 || cols <= 0) {
+        printf("Rows and columns must be positive.\n");
+        return;
+    }
     
     printf("\n--- Custom Box ---\n\n");
     
@@ -264,6 +293,10 @@ void asciiBox() {
     scanf("%d", &rows);
     printf("Enter columns: ");
     scanf("%d", &cols);
+    if(rows < 2 || cols < 2) {
+        printf("Rows and columns must be >= 2 for framed box.\n");
+        return;
+    }
     
     printf("\n--- ASCII Art Box ---\n\n");
     
@@ -286,6 +319,10 @@ void numberedBox() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 50) {
+        printf("Size must be in range 1..50.\n");
+        return;
+    }
     
     printf("\n--- Numbered Box ---\n\n");
     
@@ -301,6 +338,10 @@ void patternFilledBox() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 50) {
+        printf("Size must be in range 1..50.\n");
+        return;
+    }
     
     printf("\n--- Pattern Filled Box ---\n\n");
     
@@ -319,6 +360,10 @@ void crossBox() {
     int n;
     printf("\nEnter size (odd): ");
     scanf("%d", &n);
+    if(n <= 0 || n % 2 == 0) {
+        printf("Size must be a positive odd number.\n");
+        return;
+    }
     
     printf("\n--- Cross Box ---\n\n");
     
@@ -337,6 +382,10 @@ void diagonalBox() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 60) {
+        printf("Size must be in range 1..60.\n");
+        return;
+    }
     
     printf("\n--- Diagonal Box ---\n\n");
     
@@ -355,6 +404,10 @@ void spiralBox() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 20) {
+        printf("Size must be in range 1..20.\n");
+        return;
+    }
     
     int matrix[20][20] = {0};
     int top = 0, bottom = n-1, left = 0, right = n-1;
@@ -397,6 +450,10 @@ void fancyBorder() {
     scanf("%d", &rows);
     printf("Enter columns: ");
     scanf("%d", &cols);
+    if(rows < 2 || cols < 2) {
+        printf("Rows and columns must be >= 2 for framed border.\n");
+        return;
+    }
     
     printf("\n--- Fancy Border ---\n\n");
     

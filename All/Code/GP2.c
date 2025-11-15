@@ -1,5 +1,6 @@
 /*
- * Advanced Progression & Series Calculator v2.0
+ * Advanced Progression & Series Calculator v2.1
+ * Modified: 2025-11-15
  * Features: GP, AP, HP, special series,
  *           convergence analysis, sum calculations
  */
@@ -112,13 +113,22 @@ void geometricProgression() {
     
     printf("\nEnter The term Number :: ");
     scanf("%d", &n);
-    
+    if(n <= 0) {
+        printf("Invalid number of terms (must be > 0).\n");
+        return;
+    }
+    if(n > 100) {
+        printf("Limiting terms to 100 to avoid overflow/display issues.\n");
+        n = 100;
+    }
+
     printf("\n--- Geometric Progression (3, 12, 48...) ---\n\n");
     
     int a = 3;
-    
     for(i = 1; i <= n; i++) {
         printf("%d ", a);
+        /* guard against overflow for large n */
+        if(a > INT_MAX / 4) break;
         a *= 4;
     }
     printf("\n");
