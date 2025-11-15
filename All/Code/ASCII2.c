@@ -1,5 +1,6 @@
 /*
- * Advanced ASCII Table & Character Analyzer v2.0
+ * Advanced ASCII Table & Character Analyzer v2.1
+ * Modified: 2025-11-15
  * Features: Complete ASCII tables, character conversions,
  *           encoding analysis, and character utilities
  */
