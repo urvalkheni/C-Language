@@ -370,3 +370,5 @@ void powerOfTwo() {
         printf("2^%d = %d\n", power, num);
     }
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
