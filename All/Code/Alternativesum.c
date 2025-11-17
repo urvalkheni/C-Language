@@ -546,3 +546,5 @@ void leibnizPiApproximation() {
     printf("Error:           %.15f\n", fabs(pi_approx - actual_pi));
     printf("Terms used:      %d\n", n);
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */

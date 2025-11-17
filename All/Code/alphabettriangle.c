@@ -456,3 +456,5 @@ void customAlphabetTriangle() {
         printf("\n");
     }
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
