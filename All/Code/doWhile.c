@@ -451,3 +451,5 @@ void doWhileTimer() {
     }while(i<10);
     return 0;
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
