@@ -392,3 +392,5 @@ void loopComparison() {
     
     printf("\nAll results: %lld (should be same)\n", sum1);
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
