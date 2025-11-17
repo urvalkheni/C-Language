@@ -441,3 +441,5 @@ void numberClassification() {
         if(num % i == 0)
             printf("  • Divisible by %d\n", i);
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */

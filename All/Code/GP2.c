@@ -452,3 +452,5 @@ void geometricMean() {
         printf("%.2f ", nums[i]);
     printf("\n\nGeometric Mean = %.4f\n", gm);
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
