@@ -476,3 +476,5 @@ void visualizeRectangle() {
     printf("\nArea: %d\n", length * width);
     printf("Perimeter: %d\n", 2 * (length + width));
 }
+
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
