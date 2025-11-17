@@ -76,6 +76,8 @@ int main() {
     return 0;
 }
 
+/* Version note: updated 2025-11-17 — minor header/metadata bump */
+
 void displayMenu() {
     printf("\n┌─────────────────────────────────────────────────────────┐\n");
     printf("│                    MAIN MENU                            │\n");
