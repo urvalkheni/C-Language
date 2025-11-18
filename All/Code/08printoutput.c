@@ -1,5 +1,5 @@
 /*
- * Advanced Number Pattern Generator v2.0
+ * Advanced Number Pattern Generator v2.1
  * Features: Numeric patterns, sequences, visualizations,
  *           custom number arrangements, and mathematical designs
  */
@@ -30,7 +30,7 @@ int main() {
     int choice;
     
     printf("╔════════════════════════════════════════════════════════════╗\n");
-    printf("║      Advanced Number Pattern Generator v2.0               ║\n");
+    printf("║      Advanced Number Pattern Generator v2.1               ║\n");
     printf("║         Comprehensive Numeric Pattern System               ║\n");
     printf("╚════════════════════════════════════════════════════════════╝\n\n");
     
