@@ -160,10 +160,18 @@ void basicOperations() {
             sprintf(operation, "%.3f ^ %.3f", num1, num2);
             break;
         case 's':
+            if(num1 < 0) {
+                printf("Error: Square root of negative number is undefined!\n");
+                return;
+            }
             result = sqrt(num1);
             sprintf(operation, "sqrt(%.3f)", num1);
             break;
         case 'r':
+            if(num1 == 0.0) {
+                printf("Error: Reciprocal of zero is undefined!\n");
+                return;
+            }
             result = 1.0 / num1;
             sprintf(operation, "1/%.3f", num1);
             break;

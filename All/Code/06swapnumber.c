@@ -293,9 +293,8 @@ void swapUsingTemp(int *a, int *b) {
 
 // Swap using arithmetic
 void swapArithmetic(int *a, int *b) {
-    *a = *a + *b;
-    *b = *a - *b;
-    *a = *a - *b;
+    // Use safe temp-based swap to avoid overflow and undefined behavior.
+    swapUsingTemp(a, b);
 }
 
 // Swap using XOR
