@@ -255,13 +255,17 @@ void goldenRatioAnalysis(int n) {
     printf("%-8s %-12s %-12s %-15s %-15s\n", "Term", "F(n)", "F(n+1)", "Ratio", "Difference");
     printf("------------------------------------------------------------\n");
     
-    for(int i = 1; i < n-1; i++) {
+    for(int i = 0; i < n - 1; i++) {
         c = a + b;
-        double ratio = (double)b / a;
-        double difference = fabs(ratio - PHI);
-        
-        printf("%-8d %-12lld %-12lld %-15.10f %-15.10f\n", 
-               i, a, b, ratio, difference);
+
+        if(a == 0) {
+            printf("%-8d %-12lld %-12lld %-15s %-15s\n", i, a, b, "N/A", "N/A");
+        } else {
+            double ratio = (double)b / a;
+            double difference = fabs(ratio - PHI);
+            printf("%-8d %-12lld %-12lld %-15.10f %-15.10f\n", 
+                   i, a, b, ratio, difference);
+        }
         
         a = b;
         b = c;

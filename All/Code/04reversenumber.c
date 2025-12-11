@@ -410,9 +410,13 @@ void reverseInBase(long long n, int base) {
     long long temp = n;
     
     // Convert to base
-    while(temp > 0) {
-        representation[index++] = digits[temp % base];
-        temp /= base;
+    if(temp == 0) {
+        representation[index++] = '0';
+    } else {
+        while(temp > 0) {
+            representation[index++] = digits[temp % base];
+            temp /= base;
+        }
     }
     representation[index] = '\0';
     

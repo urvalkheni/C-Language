@@ -347,6 +347,11 @@ void unitConversions() {
             int tempTo;
             scanf("%d", &tempTo);
 
+            if(tempFrom < 1 || tempFrom > 3 || tempTo < 1 || tempTo > 3) {
+                printf("Invalid temperature unit selection!\n");
+                return;
+            }
+
             if(tempFrom == 1 && tempTo == 2) {
                 result = (value * 9.0/5.0) + 32;
                 sprintf(operation, "%.2f°C to °F", value);
@@ -379,6 +384,11 @@ void unitConversions() {
             int lengthTo;
             scanf("%d", &lengthTo);
 
+            if(lengthFrom < 1 || lengthFrom > 3 || lengthTo < 1 || lengthTo > 3) {
+                printf("Invalid length unit selection!\n");
+                return;
+            }
+
             // Convert to meters first, then to target unit
             double meters = value;
             if(lengthFrom == 2) meters = value * 0.3048;
@@ -398,6 +408,11 @@ void unitConversions() {
             printf("Convert to: 1-Kilograms, 2-Pounds, 3-Ounces: ");
             int weightTo;
             scanf("%d", &weightTo);
+
+            if(weightFrom < 1 || weightFrom > 3 || weightTo < 1 || weightTo > 3) {
+                printf("Invalid weight unit selection!\n");
+                return;
+            }
 
             // Convert to kg first, then to target unit
             double kg = value;

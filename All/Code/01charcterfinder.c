@@ -196,6 +196,11 @@ void analyzeString() {
     printf("\nEnter a string: ");
     fgets(str, MAX_STRING, stdin);
     str[strcspn(str, "\n")] = 0;
+
+    if(str[0] == '\0') {
+        printf("\nNo input provided for analysis.\n");
+        return;
+    }
     
     int alphabets = 0, digits = 0, special = 0, spaces = 0;
     int upper = 0, lower = 0, vowels = 0, consonants = 0;
