@@ -16,6 +16,7 @@ void findFactors(long long n);
 void primeFactorization(long long n);
 long long fibonacci(int n);
 bool isFibonacci(long long n);
+bool isPowerOfTwo(long long n);
 long long gcd(long long a, long long b);
 long long lcm(long long a, long long b);
 int countDigits(long long n);
@@ -90,6 +91,7 @@ void analyzeNumber(long long num) {
     printf("Is Palindrome: %s\n", isPalindrome(num) ? "YES" : "NO");
     printf("Is Happy Number: %s\n", isHappy(num) ? "YES" : "NO");
     printf("Is Fibonacci: %s\n", isFibonacci(num) ? "YES" : "NO");
+    printf("Is Power of Two: %s\n", isPowerOfTwo(num) ? "YES" : "NO");
 
     // Special number classifications
     printf("\n--- Special Classifications ---\n");
@@ -242,6 +244,11 @@ bool isFibonacci(long long n) {
         c = a + b;
     }
     return false;
+}
+
+bool isPowerOfTwo(long long n) {
+    if(n <= 0) return false;
+    return (n & (n - 1)) == 0;
 }
 
 long long gcd(long long a, long long b) {

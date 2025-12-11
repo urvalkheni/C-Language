@@ -325,7 +325,7 @@ void customBinaryPattern() {
             switch(rule) {
                 case 1: value = (i + j) % 2; break;
                 case 2: value = (i * j) % 2; break;
-                case 3: value = i ^ j % 2; break;
+                case 3: value = (i ^ j) % 2; break;
                 case 4: value = (i & j) % 2; break;
                 case 5: value = (i | j) % 2; break;
                 default: value = (i + j) % 2;
