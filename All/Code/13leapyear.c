@@ -74,6 +74,10 @@ int main() {
                 scanf("%d", &month);
                 printf("Enter year: ");
                 scanf("%d", &year);
+                if(month < 1 || month > 12) {
+                    printf("Invalid month! Use 1-12.\n");
+                    break;
+                }
                 printf("%s %d has %d days.\n", monthNames[month], year, getDaysInMonth(month, year));
                 break;
                 
@@ -126,6 +130,10 @@ int main() {
                 scanf("%d", &month);
                 printf("Enter year: ");
                 scanf("%d", &year);
+                if(month < 1 || month > 12) {
+                    printf("Invalid month! Use 1-12.\n");
+                    break;
+                }
                 printCalendar(month, year);
                 break;
                 

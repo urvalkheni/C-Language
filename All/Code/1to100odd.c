@@ -414,6 +414,12 @@ void oddSum(int start, int end) {
 }
 
 void oddProduct(int start, int end) {
+    if(start > end) {
+        int temp = start;
+        start = end;
+        end = temp;
+    }
+
     long long product = 1;
     int count = 0;
     
@@ -426,7 +432,10 @@ void oddProduct(int start, int end) {
     
     printf("Product of odd numbers from %d to %d:\n", start, end);
     printf("Count: %d\n", count);
-    printf("Product: %lld\n", product);
+    if(count == 0)
+        printf("No odd numbers in range.\n");
+    else
+        printf("Product: %lld\n", product);
 }
 
 void oddEvenGrid(int rows, int cols) {

@@ -144,6 +144,11 @@ void diamondPattern() {
     int n;
     printf("\nEnter size: ");
     scanf("%d", &n);
+
+    if(n <= 0 || n % 2 == 0) {
+        printf("Size must be a positive odd number for a symmetric diamond.\n");
+        return;
+    }
     
     printf("\n--- Star Diamond ---\n\n");
     

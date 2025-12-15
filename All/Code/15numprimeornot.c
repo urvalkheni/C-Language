@@ -171,9 +171,9 @@ bool isPrimeBasic(long long n) {
     if(n <= 1) return false;
     if(n == 2) return true;
     if(n % 2 == 0) return false;
-    
-    printf("Testing divisibility from 3 to %lld...\n", n-1);
-    for(long long i = 3; i < n; i += 2) {
+    long long limit = sqrt(n);
+    printf("Testing divisibility from 3 to √%lld (%lld)...\n", n, limit);
+    for(long long i = 3; i <= limit; i += 2) {
         if(n % i == 0) {
             printf("Found divisor: %lld\n", i);
             return false;
