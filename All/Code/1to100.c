@@ -247,6 +247,10 @@ void displayMenu() {
 
 void printRange(int start, int end, int step) {
     int count = 0;
+    if(step == 0) {
+        printf("Step cannot be zero.\n");
+        return;
+    }
     if(step > 0) {
         for(int i = start; i <= end; i += step) {
             printf("%d ", i);

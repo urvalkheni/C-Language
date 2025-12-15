@@ -269,6 +269,11 @@ void calculateTriangleArea() {
             printf("Enter first side: "); scanf("%lf", &side1);
             printf("Enter second side: "); scanf("%lf", &side2);
             printf("Enter included angle (degrees): "); scanf("%lf", &angle);
+
+            if(side1 <= 0 || side2 <= 0 || angle <= 0 || angle >= 180) {
+                printf("Error: Sides must be positive and angle must be between 0 and 180 degrees.\n");
+                return;
+            }
             
             area = 0.5 * side1 * side2 * sin(angle * PI / 180);
             printf("\nArea: %.6f square units\n", area);
