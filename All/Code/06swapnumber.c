@@ -343,7 +343,9 @@ void reverseArray(int arr[], int start, int end) {
 
 // Rotate array
 void rotateArray(int arr[], int n, int positions) {
+    if(n <= 0) return;
     positions = positions % n;
+    if(positions == 0) return;
     reverseArray(arr, 0, positions - 1);
     reverseArray(arr, positions, n - 1);
     reverseArray(arr, 0, n - 1);
