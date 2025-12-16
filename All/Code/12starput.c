@@ -178,6 +178,10 @@ void pyramidPattern() {
     int n;
     printf("\nEnter height: ");
     scanf("%d", &n);
+    if(n <= 0 || n > 50) {
+        printf("Height must be between 1 and 50.\n");
+        return;
+    }
     
     printf("\n--- Pyramid Pattern ---\n\n");
     
@@ -305,6 +309,10 @@ void rectanglePattern() {
     scanf("%d", &rows);
     printf("Enter columns: ");
     scanf("%d", &cols);
+    if(rows <= 0 || cols <= 0 || rows > 50 || cols > 50) {
+        printf("Rows and columns must be between 1 and 50.\n");
+        return;
+    }
     
     printf("\n--- Rectangle Pattern ---\n\n");
     
