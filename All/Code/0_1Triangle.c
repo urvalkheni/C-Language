@@ -244,6 +244,10 @@ void spiralBinary() {
     int n;
     printf("\nEnter size (odd number recommended): ");
     scanf("%d", &n);
+    if(n <= 0 || n > 20) {
+        printf("Size must be between 1 and 20.\n");
+        return;
+    }
     
     int matrix[20][20] = {0};
     int top = 0, bottom = n - 1, left = 0, right = n - 1;

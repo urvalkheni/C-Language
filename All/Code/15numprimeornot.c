@@ -27,7 +27,7 @@ void primeNumberTheory(long long n);
 void goldenbachConjecture(int n);
 long long power(long long base, long long exp, long long mod);
 long long gcd(long long a, long long b);
-bool millerTest(long long d, long long n);
+bool millerTest(long long a, long long d, long long n);
 
 // Global arrays for sieve
 bool sieve[MAX_SIEVE];
@@ -217,7 +217,7 @@ bool isPrimeMillerRabin(long long n, int k) {
     // Perform k rounds of testing
     for(int i = 0; i < k; i++) {
         long long a = 2 + rand() % (n - 4);
-        if(!millerTest(d, n)) {
+        if(!millerTest(a, d, n)) {
             printf("Composite detected in round %d with witness %lld\n", i+1, a);
             return false;
         }
@@ -227,8 +227,7 @@ bool isPrimeMillerRabin(long long n, int k) {
     return true;
 }
 
-bool millerTest(long long d, long long n) {
-    long long a = 2 + rand() % (n - 4);
+bool millerTest(long long a, long long d, long long n) {
     long long x = power(a, d, n);
     
     if(x == 1 || x == n - 1) return true;
