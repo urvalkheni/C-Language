@@ -53,6 +53,10 @@ int main() {
                 printf("\n--- Circle Area & Perimeter ---\n");
                 printf("Enter radius: ");
                 scanf("%lf", &r);
+                if(r <= 0) {
+                    printf("Error: Radius must be positive!\n");
+                    break;
+                }
                 printf("Area: %.2f\n", circleArea(r));
                 printf("Perimeter (Circumference): %.2f\n", circlePerimeter(r));
                 break;
@@ -63,6 +67,10 @@ int main() {
                 scanf("%lf", &l);
                 printf("Enter width: ");
                 scanf("%lf", &w);
+                if(l <= 0 || w <= 0) {
+                    printf("Error: Length and width must be positive!\n");
+                    break;
+                }
                 printf("Area: %.2f\n", rectangleArea(l, w));
                 printf("Perimeter: %.2f\n", rectanglePerimeter(l, w));
                 break;
@@ -73,6 +81,10 @@ int main() {
                 scanf("%lf", &b);
                 printf("Enter height: ");
                 scanf("%lf", &h);
+                if(b <= 0 || h <= 0) {
+                    printf("Error: Base and height must be positive!\n");
+                    break;
+                }
                 printf("Area: %.2f\n", triangleArea(b, h));
                 break;
                 
@@ -94,6 +106,10 @@ int main() {
                 printf("\n--- Square Area & Perimeter ---\n");
                 printf("Enter side: ");
                 scanf("%lf", &s);
+                if(s <= 0) {
+                    printf("Error: Side must be positive!\n");
+                    break;
+                }
                 printf("Area: %.2f\n", squareArea(s));
                 printf("Perimeter: %.2f\n", squarePerimeter(s));
                 printf("Diagonal: %.2f\n", s * sqrt(2));
@@ -107,6 +123,10 @@ int main() {
                 scanf("%lf", &b);
                 printf("Enter height: ");
                 scanf("%lf", &h);
+                if(a <= 0 || b <= 0 || h <= 0) {
+                    printf("Error: All dimensions must be positive!\n");
+                    break;
+                }
                 printf("Area: %.2f\n", trapezoidArea(a, b, h));
                 break;
                 
@@ -132,6 +152,10 @@ int main() {
                 printf("\n--- Sphere Volume & Surface Area ---\n");
                 printf("Enter radius: ");
                 scanf("%lf", &r);
+                if(r <= 0) {
+                    printf("Error: Radius must be positive!\n");
+                    break;
+                }
                 printf("Volume: %.2f\n", sphereVolume(r));
                 printf("Surface Area: %.2f\n", sphereSurfaceArea(r));
                 break;

@@ -57,6 +57,10 @@ int main() {
                 scanf("%d", &a);
                 printf("Enter second number: ");
                 scanf("%d", &b);
+                if(a <= 0 || b <= 0) {
+                    printf("Error: Both numbers must be positive!\n");
+                    break;
+                }
                 printf("GCD(%d, %d) = %d\n", a, b, gcdEuclidean(a, b));
                 break;
                 

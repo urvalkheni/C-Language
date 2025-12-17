@@ -50,6 +50,10 @@ int main() {
                 scanf("%d", &a);
                 printf("Enter divisor: ");
                 scanf("%d", &b);
+                if(b == 0) {
+                    printf("Error: Division by zero is undefined!\n");
+                    break;
+                }
                 basicDivision(a, b);
                 break;
                 
