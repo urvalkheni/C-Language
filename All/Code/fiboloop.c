@@ -4,6 +4,14 @@ int main(){
     int n,i;
     printf("Enter The number :: ");
     scanf("%d",&n);
+    if(n <= 0) {
+        printf("Error: Please enter a positive number!\n");
+        return 1;
+    }
+    if(n > 100) {
+        printf("Error: Number too large (max 100)!\n");
+        return 1;
+    }
     int a = 1;
     int b = 1;
     int sum = 1;

@@ -95,7 +95,7 @@ int main() {
                 if(maxDigits > 0 && maxDigits <= 10) {
                     generateArmstrongSequence(maxDigits);
                 } else {
-                    printf("Please enter digits between 1 and 10\n");
+                    printf("Invalid input! Please enter digits between 1 and 10\n");
                 }
                 break;
             case 4:

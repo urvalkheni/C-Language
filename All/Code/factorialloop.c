@@ -57,7 +57,7 @@ int main() {
                 if(n >= 0 && n <= 20)
                     printf("%d! = %llu\n", n, factorialIterative(n));
                 else
-                    printf("Number out of range!\n");
+                    printf("Error: Number must be between 0 and 20!\n");
                 break;
                 
             case 2:
