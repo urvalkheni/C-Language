@@ -148,6 +148,11 @@ void arraySum() {
     printf("\nEnter array size: ");
     scanf("%d", &n);
     
+    if(n <= 0 || n > MAX) {
+        printf("Error: Array size must be between 1 and %d!\n", MAX);
+        return;
+    }
+    
     printf("Enter %d elements:\n", n);
     for(int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);

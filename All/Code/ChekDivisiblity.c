@@ -130,6 +130,11 @@ void multiDivisibility() {
     printf("\nEnter number: ");
     scanf("%d", &num);
     
+    if(num <= 0) {
+        printf("Error: Please enter a positive number!\n");
+        return;
+    }
+    
     printf("\n--- Multiple Divisibility Test ---\n\n");
     
     int divisors[] = {2, 3, 4, 5, 6, 7, 8, 9, 10};
