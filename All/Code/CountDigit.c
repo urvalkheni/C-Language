@@ -153,6 +153,11 @@ void displayMenu() {
 
 void countDigits(long long n) {
     printf("\n--- Count Digits ---\n");
+    if(n < -9999999999999999LL || n > 9999999999999999LL) {
+        printf("Error: Number out of valid range!\n");
+        return;
+    }
+    
     n = llabs(n);
     
     if(n == 0) {

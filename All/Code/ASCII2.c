@@ -332,6 +332,11 @@ void customRangeASCII() {
     printf("Enter columns: ");
     scanf("%d", &cols);
     
+    if(start < 0 || end < 0 || start > 255 || end > 255 || start > end || cols <= 0) {
+        printf("Error: Valid range is 0-255 with start <= end and columns > 0!\n");
+        return;
+    }
+    
     printf("\n--- Custom ASCII Range ---\n\n");
     
     int count = 0;

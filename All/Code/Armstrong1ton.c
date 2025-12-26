@@ -209,6 +209,15 @@ void armstrongRange() {
     printf("Enter end: ");
     scanf("%d", &end);
     
+    if(start < 0 || end < 0 || start > end) {
+        printf("Error: Invalid range! Start must be >= 0 and start <= end.\n");
+        return;
+    }
+    
+    if(end > 999999) {
+        printf("Warning: Large range may take time to compute.\n");
+    }
+    
     printf("\n--- Armstrong Numbers in Range ---\n");
     printf("Range: %d to %d\n\n", start, end);
     
