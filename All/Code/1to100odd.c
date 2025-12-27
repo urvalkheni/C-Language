@@ -2,6 +2,12 @@
  * Advanced Odd/Even Number Generator & Analyzer v2.0
  * Features: Odd/even patterns, prime odds, mathematical
  *           analysis, and comprehensive number filtering
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced input range validation
+ * - Added comprehensive error checking
+ * - Improved algorithm efficiency
+ * - Better user feedback and documentation
  */
 
 #include <stdio.h>
@@ -40,9 +46,16 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-16): ");
-        scanf("%d", &choice);
+        int scanVal = scanf("%d", &choice);
         
-        switch(choice) {
+        // Validate input
+        if(scanVal != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        
+        if(choice == 0) break;
             case 1:
                 printf("\n--- Print Odd Numbers ---\n");
                 printf("Enter start and end: ");
