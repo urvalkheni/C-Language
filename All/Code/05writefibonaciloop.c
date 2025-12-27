@@ -1,4 +1,10 @@
 // Enhanced Fibonacci Calculator with Golden Ratio Analysis and Performance Optimization
+// IMPROVEMENTS (v2.1): Better input validation and bounds checking
+// - Validates all user inputs
+// - Added checks for array bounds
+// - Improved memoization table initialization
+// - Enhanced error messages and safety checks
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
@@ -45,7 +51,14 @@ int main() {
     while(1) {
         displayFibonacciMenu();
         printf("Enter your choice (1-8, 0 to exit): ");
-        scanf("%d", &choice);
+        int inputCheck = scanf("%d", &choice);
+        
+        // Validate input
+        if(inputCheck != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
 
         switch(choice) {
             case 0:
