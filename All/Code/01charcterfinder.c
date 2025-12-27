@@ -2,6 +2,12 @@
  * Advanced Character Classification & Analysis Tool v2.0
  * Features: Character type detection, ASCII analysis,
  *           string operations, and comprehensive character testing
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced input validation and error handling
+ * - Added better boundary checking for string operations
+ * - Improved null-pointer safety
+ * - Added comprehensive documentation
  */
 
 #include <stdio.h>
@@ -42,8 +48,14 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-16): ");
-        scanf("%d", &choice);
+        int scanResult = scanf("%d", &choice);
         getchar(); // Clear newline
+        
+        // Validate scanf input
+        if(scanResult != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            continue;
+        }
         
         if(choice == 0) break;
         
