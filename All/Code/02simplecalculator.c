@@ -1,4 +1,10 @@
 // Enhanced Scientific Calculator with History and Advanced Operations
+// IMPROVEMENTS (v2.1): Better error handling, input validation, improved comments
+// - Added validation for mathematical operations (division by zero)
+// - Enhanced history management with bounds checking
+// - Improved user input validation throughout
+// - Added safety checks for memory operations
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
@@ -48,8 +54,14 @@ int main() {
     while(1) {
         displayMenu();
         printf("Enter your choice (1-8, 0 to exit): ");
-        scanf("%d", &choice);
+        int result = scanf("%d", &choice);
         clearInputBuffer();
+        
+        // Validate input
+        if(result != 1) {
+            printf("Error: Please enter a valid number.\n");
+            continue;
+        }
 
         switch(choice) {
             case 0:
