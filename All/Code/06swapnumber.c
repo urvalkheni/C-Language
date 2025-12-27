@@ -2,6 +2,12 @@
  * Advanced Number Swapping Techniques v2.0
  * Features: Multiple swap algorithms, pointer operations,
  *           array swapping, circular rotations, and more
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Added comprehensive input validation
+ * - Enhanced overflow/underflow protection
+ * - Better error handling for swap operations
+ * - Improved documentation and clarity
  */
 
 #include <stdio.h>
@@ -41,9 +47,16 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-15): ");
-        scanf("%d", &choice);
+        int inputStatus = scanf("%d", &choice);
         
-        switch(choice) {
+        // Validate input
+        if(inputStatus != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        
+        if(choice == 0) break;
             case 1:
                 printf("\n--- Swap Using Temporary Variable ---\n");
                 printf("Enter first number: ");

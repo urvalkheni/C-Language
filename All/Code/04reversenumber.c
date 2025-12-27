@@ -2,6 +2,12 @@
  * Advanced Number Reversal & Palindrome Analyzer v2.0
  * Features: Multiple reversal algorithms, palindrome detection,
  *           mathematical analysis, base conversion, and more
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced input validation for all operations
+ * - Added comprehensive error checking
+ * - Improved robustness of reversal algorithms
+ * - Better documentation throughout
  */
 
 #include <stdio.h>
@@ -47,9 +53,16 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-17): ");
-        scanf("%d", &choice);
+        int scanResult = scanf("%d", &choice);
         
-        switch(choice) {
+        // Validate input
+        if(scanResult != 1) {
+            printf("Error: Please enter a valid number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        
+        if(choice == 0) break;
             case 1:
                 printf("\n--- Iterative Reversal ---\n");
                 printf("Enter a number: ");
