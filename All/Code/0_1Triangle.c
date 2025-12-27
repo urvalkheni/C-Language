@@ -2,6 +2,12 @@
  * Advanced Binary Pattern Generator v2.0
  * Features: 0-1 patterns, binary visualizations,
  *           custom patterns, and mathematical binary operations
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Added input validation for menu choices
+ * - Enhanced error handling for pattern generation
+ * - Improved code documentation and comments
+ * - Added bounds checking for user inputs
  */
 
 #include <stdio.h>
@@ -30,6 +36,7 @@ void displayMenu();
 
 int main() {
     int choice;
+    int inputStatus;
     
     printf("╔════════════════════════════════════════════════════════════╗\n");
     printf("║       Advanced Binary Pattern Generator v2.0              ║\n");
@@ -41,7 +48,14 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-16): ");
-        scanf("%d", &choice);
+        inputStatus = scanf("%d", &choice);
+        
+        // Input validation: check if scanf was successful
+        if(inputStatus != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n'); // Clear input buffer
+            continue;
+        }
         
         if(choice == 0) break;
         

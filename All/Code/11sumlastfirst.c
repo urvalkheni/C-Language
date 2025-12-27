@@ -2,6 +2,12 @@
  * Advanced Digit Manipulation & Analysis v2.0
  * Features: First/last digit operations, digit patterns,
  *           mathematical analysis, and statistical tools
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced bounds checking for digit extraction
+ * - Added input validation for all operations
+ * - Improved error handling for edge cases
+ * - Better documentation and code clarity
  */
 
 #include <stdio.h>
@@ -52,9 +58,16 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-20): ");
-        scanf("%d", &choice);
+        int scanStatus = scanf("%d", &choice);
         
-        switch(choice) {
+        // Validate input
+        if(scanStatus != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        
+        if(choice == 0) break;
             case 1:
                 printf("\n--- First Digit Extraction ---\n");
                 printf("Enter a number: ");

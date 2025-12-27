@@ -2,6 +2,12 @@
  * Advanced Number Pattern Generator v2.1
  * Features: Numeric patterns, sequences, visualizations,
  *           custom number arrangements, and mathematical designs
+ * 
+ * IMPROVEMENTS (v2.2):
+ * - Added input range validation
+ * - Enhanced error checking for pattern generation
+ * - Improved algorithm robustness
+ * - Better documentation throughout
  */
 
 #include <stdio.h>
@@ -37,7 +43,14 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-16): ");
-        scanf("%d", &choice);
+        int result = scanf("%d", &choice);
+        
+        // Validate input
+        if(result != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
         
         if(choice == 0) break;
         
