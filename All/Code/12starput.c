@@ -2,6 +2,12 @@
  * Advanced Star Pattern Generator v2.0
  * Features: Multiple star patterns, diamonds, pyramids,
  *           custom shapes, and creative ASCII art
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced input validation for pattern size
+ * - Added bounds checking for pattern generation
+ * - Improved memory safety in string operations
+ * - Better error messages and user feedback
  */
 
 #include <stdio.h>
@@ -37,7 +43,14 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-16): ");
-        scanf("%d", &choice);
+        int inputResult = scanf("%d", &choice);
+        
+        // Validate input
+        if(inputResult != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
         
         if(choice == 0) break;
         

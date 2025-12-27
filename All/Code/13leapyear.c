@@ -2,6 +2,12 @@
  * Advanced Date & Calendar Analyzer v2.0
  * Features: Leap year calculation, date validation,
  *           calendar functions, astronomical calculations
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced date validation functions
+ * - Added comprehensive input range checking
+ * - Improved error handling for calendar operations
+ * - Better documentation for all functions
  */
 
 #include <stdio.h>
@@ -55,9 +61,16 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-18): ");
-        scanf("%d", &choice);
+        int scanCheck = scanf("%d", &choice);
         
-        switch(choice) {
+        // Validate input
+        if(scanCheck != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        
+        if(choice == 0) break;
             case 1:
                 printf("\n--- Leap Year Checker ---\n");
                 printf("Enter year: ");

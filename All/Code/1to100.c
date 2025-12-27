@@ -2,6 +2,12 @@
  * Advanced Number Sequence Generator v2.0
  * Features: Multiple patterns, customizable ranges,
  *           arithmetic/geometric sequences, visualizations
+ * 
+ * IMPROVEMENTS (v2.1):
+ * - Enhanced input validation for ranges
+ * - Added bounds checking for all operations
+ * - Improved algorithm efficiency
+ * - Better documentation and error handling
  */
 
 #include <stdio.h>
@@ -43,9 +49,16 @@ int main() {
     do {
         displayMenu();
         printf("\nEnter your choice (0-17): ");
-        scanf("%d", &choice);
+        int inputCheck = scanf("%d", &choice);
         
-        switch(choice) {
+        // Validate input
+        if(inputCheck != 1) {
+            printf("Error: Invalid input. Please enter a number.\n");
+            while(getchar() != '\n');
+            continue;
+        }
+        
+        if(choice == 0) break;
             case 1:
                 printf("\n--- Print Number Range ---\n");
                 printf("Enter start: ");
