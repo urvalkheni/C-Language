@@ -425,7 +425,10 @@ void fibonacciModulo(int n) {
     int mod;
     printf("\n--- Fibonacci Modulo ---\n");
     printf("Enter modulo value: ");
-    scanf("%d", &mod);
+    if(scanf("%d", &mod) != 1 || mod <= 0) {
+        printf("Error: Invalid modulo value! Must be positive.\n");
+        return;
+    }
     
     long long a = 0, b = 1, c;
     
