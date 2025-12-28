@@ -54,11 +54,13 @@ int main() {
             case 1:
                 printf("\n--- GCD (Euclidean Algorithm) ---\n");
                 printf("Enter first number: ");
-                scanf("%d", &a);
+                if(scanf("%d", &a) != 1 || a <= 0) {
+                    printf("Error: Invalid input! Please enter a positive number.\n");
+                    break;
+                }
                 printf("Enter second number: ");
-                scanf("%d", &b);
-                if(a <= 0 || b <= 0) {
-                    printf("Error: Both numbers must be positive!\n");
+                if(scanf("%d", &b) != 1 || b <= 0) {
+                    printf("Error: Invalid input! Please enter a positive number.\n");
                     break;
                 }
                 printf("GCD(%d, %d) = %d\n", a, b, gcdEuclidean(a, b));
@@ -67,18 +69,30 @@ int main() {
             case 2:
                 printf("\n--- GCD (Subtraction Method) ---\n");
                 printf("Enter first number: ");
-                scanf("%d", &a);
+                if(scanf("%d", &a) != 1 || a <= 0) {
+                    printf("Error: Invalid input! Please enter a positive number.\n");
+                    break;
+                }
                 printf("Enter second number: ");
-                scanf("%d", &b);
+                if(scanf("%d", &b) != 1 || b <= 0) {
+                    printf("Error: Invalid input! Please enter a positive number.\n");
+                    break;
+                }
                 printf("GCD(%d, %d) = %d\n", a, b, gcdSubtraction(a, b));
                 break;
                 
             case 3:
                 printf("\n--- GCD (Recursive) ---\n");
                 printf("Enter first number: ");
-                scanf("%d", &a);
+                if(scanf("%d", &a) != 1 || a <= 0) {
+                    printf("Error: Invalid input! Please enter a positive number.\n");
+                    break;
+                }
                 printf("Enter second number: ");
-                scanf("%d", &b);
+                if(scanf("%d", &b) != 1 || b <= 0) {
+                    printf("Error: Invalid input! Please enter a positive number.\n");
+                    break;
+                }
                 printf("GCD(%d, %d) = %d\n", a, b, gcdRecursive(a, b));
                 break;
                 

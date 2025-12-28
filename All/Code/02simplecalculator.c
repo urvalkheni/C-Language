@@ -127,27 +127,39 @@ void basicOperations() {
     printf("\n=== BASIC OPERATIONS ===\n");
     printf("Available operators: +, -, *, /, %%, ^\n");
     printf("Enter first number: ");
-    scanf("%lf", &num1);
+    if(scanf("%lf", &num1) != 1) {
+        printf("Error: Invalid input! Please enter a number.\n");
+        clearInputBuffer();
+        return;
+    }
     printf("Enter operator: ");
-    scanf(" %c", &operator);
+    if(scanf(" %c", &operator) != 1) {
+        printf("Error: Invalid operator!\n");
+        clearInputBuffer();
+        return;
+    }
     
     if(operator != 's' && operator != 'r' && operator != 'f') {
         printf("Enter second number: ");
-        scanf("%lf", &num2);
+        if(scanf("%lf", &num2) != 1) {
+            printf("Error: Invalid input! Please enter a number.\n");
+            clearInputBuffer();
+            return;
+        }
     }
 
     switch(operator) {
         case '+':
             result = num1 + num2;
-            sprintf(operation, "%.3f + %.3f", num1, num2);
+            snprintf(operation, sizeof(operation), "%.3f + %.3f", num1, num2);
             break;
         case '-':
             result = num1 - num2;
-            sprintf(operation, "%.3f - %.3f", num1, num2);
+            snprintf(operation, sizeof(operation), "%.3f - %.3f", num1, num2);
             break;
         case '*':
             result = num1 * num2;
-            sprintf(operation, "%.3f * %.3f", num1, num2);
+            snprintf(operation, sizeof(operation), "%.3f * %.3f", num1, num2);
             break;
         case '/':
             if(num2 != 0) {
