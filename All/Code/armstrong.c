@@ -48,6 +48,8 @@ int main() {
     long long number;
     
     printf("===============================================\n");
+    printf("    ARMSTRONG NUMBER ANALYZER v2.0\n");
+    printf("    Enhanced with Advanced Features\n");
     printf("   ENHANCED ARMSTRONG NUMBER ANALYZER v2.0\n");
     printf("===============================================\n");
     printf("Comprehensive Narcissistic Number Analysis,\n");
