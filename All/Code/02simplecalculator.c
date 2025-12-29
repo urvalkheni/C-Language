@@ -30,6 +30,7 @@ double lastResult = 0.0;
 // Function prototypes
 void displayMenu();
 void basicOperations();
+void moduloOperation();
 void scientificOperations();
 void unitConversions();
 void memoryOperations();

@@ -1,5 +1,9 @@
-//Print the nth term of fibonaci terms //
+//Print the nth term of fibonacci terms with series display //
 #include<stdio.h>
+#include<stdbool.h>
+
+void printFibonacciSeries(int n);
+
 int main(){
     int n,i;
     printf("Enter The number :: ");
@@ -20,6 +24,27 @@ int main(){
         a = b;
         b = sum;
     }
-    printf("The %dth Term is %d ",n,sum);
+    printf("The %dth Term is %d\n",n,sum);
+    
+    // Display the series
+    printf("\nFibonacci Series up to %d terms:\n", n);
+    printFibonacciSeries(n);
+    
     return 0;
+}
+
+// Function to print Fibonacci series
+void printFibonacciSeries(int n) {
+    int a = 1, b = 1, next;
+    
+    if(n >= 1) printf("1");
+    if(n >= 2) printf(", 1");
+    
+    for(int i = 3; i <= n; i++) {
+        next = a + b;
+        printf(", %d", next);
+        a = b;
+        b = next;
+    }
+    printf("\n");
 }
