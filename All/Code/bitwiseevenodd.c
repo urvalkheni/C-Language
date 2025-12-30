@@ -1,13 +1,16 @@
 /*
- * Advanced Bitwise Operations & Number Analysis v2.1
- * Modified: 2025-11-15
+ * Advanced Bitwise Operations & Number Analysis v2.2
+ * Modified: 2025-12-30
  * Features: Bitwise operators, bit manipulation,
  *           binary operations, parity checking
+ * ENHANCEMENTS: Robust input validation, bounds checking,
+ *               improved error handling
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <limits.h>
 
 void bitwiseEvenOdd();
 void bitwiseAND();
@@ -25,6 +28,8 @@ void reverseBits();
 void swapBits();
 void powerOfTwo();
 void displayMenu();
+bool getValidInteger(const char* prompt, int* value);
+bool validateBitPosition(int pos, const char* operation);
 
 int main() {
     int choice;
@@ -116,10 +121,27 @@ void printBinary(unsigned int n) {
     }
 }
 
+bool getValidInteger(const char* prompt, int* value) {
+    printf("%s", prompt);
+    if(scanf("%d", value) != 1) {
+        printf("\u2717 Invalid input! Please enter an integer.\n");
+        while(getchar() != '\n');
+        return false;
+    }
+    return true;
+}
+
+bool validateBitPosition(int pos, const char* operation) {
+    if(pos < 0 || pos >= 32) {
+        printf("\u2717 Invalid bit position for %s! (0-31)\n", operation);
+        return false;
+    }
+    return true;
+}
+
 void bitwiseEvenOdd() {
     int num;
-    printf("\nEnter a number: ");
-    scanf("%d", &num);
+    if(!getValidInteger("\nEnter a number: ", &num)) return;
     
     printf("\n--- Bitwise Even/Odd Check ---\n");
     printf("Number: %d\n", num);
@@ -136,10 +158,8 @@ void bitwiseEvenOdd() {
 
 void bitwiseAND() {
     int a, b;
-    printf("\nEnter first number: ");
-    scanf("%d", &a);
-    printf("Enter second number: ");
-    scanf("%d", &b);
+    if(!getValidInteger("\nEnter first number: ", &a)) return;
+    if(!getValidInteger("Enter second number: ", &b)) return;
     
     int result = a & b;
     
@@ -193,12 +213,10 @@ void bitwiseNOT() {
 
 void leftShift() {
     int num, shift;
-    printf("\nEnter number: ");
-    scanf("%d", &num);
-    printf("Enter shift amount: ");
-    scanf("%d", &shift);
+    if(!getValidInteger("\nEnter number: ", &num)) return;
+    if(!getValidInteger("Enter shift amount: ", &shift)) return;
     if(shift < 0 || shift > 31) {
-        printf("Invalid shift amount (0-31).\n");
+        printf("\u2717 Invalid shift amount (0-31).\n");
         return;
     }
 
@@ -371,4 +389,7 @@ void powerOfTwo() {
     }
 }
 
-/* Version note: updated 2025-11-17 — minor header/metadata bump */
+/* Version history:
+   v2.2 (2025-12-30): Added robust input validation, bounds checking
+   v2.1 (2025-11-17): Initial header/metadata setup
+*/
