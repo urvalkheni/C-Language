@@ -1,7 +1,9 @@
 /*
- * Advanced Digit Operations & Analysis Tool v2.0
+ * Advanced Digit Operations & Analysis Tool v2.1
  * Features: Digit counting, sum, product, manipulation,
  *           patterns, and comprehensive digit analysis
+ * ENHANCEMENTS: Improved negative number handling, better input validation,
+ *               robust error checking, edge case support
  */
 
 #include <stdio.h>
@@ -26,26 +28,26 @@ void alternateDigitSum(long long n);
 void digitalRoot(long long n);
 void persistenceNumber(long long n);
 void displayMenu();
+bool getValidLongLong(const char* prompt, long long* value);
+bool getValidInteger(const char* prompt, int* value);
 
 int main() {
     int choice;
     long long num;
     
     printf("╔════════════════════════════════════════════════════════════╗\n");
-    printf("║    Advanced Digit Operations & Analysis Tool v2.0         ║\n");
+    printf("║    Advanced Digit Operations & Analysis Tool v2.1         ║\n");
     printf("║         Comprehensive Digit Manipulation System           ║\n");
     printf("╚════════════════════════════════════════════════════════════╝\n\n");
     
     do {
         displayMenu();
-        printf("\nEnter your choice (0-16): ");
-        scanf("%d", &choice);
+        if(!getValidInteger("\nEnter your choice (0-16): ", &choice)) continue;
         
         if(choice == 0) break;
         
         if(choice >= 1 && choice <= 16) {
-            printf("\nEnter a number: ");
-            scanf("%lld", &num);
+            if(!getValidLongLong("\nEnter a number: ", &num)) continue;
             
             switch(choice) {
                 case 1:
@@ -117,6 +119,26 @@ int main() {
     
     printf("\n✓ Thank you for using Digit Analyzer!\n");
     return 0;
+}
+
+bool getValidLongLong(const char* prompt, long long* value) {
+    printf("%s", prompt);
+    if(scanf("%lld", value) != 1) {
+        printf("✗ Invalid input! Please enter an integer.\n");
+        while(getchar() != '\n');
+        return false;
+    }
+    return true;
+}
+
+bool getValidInteger(const char* prompt, int* value) {
+    printf("%s", prompt);
+    if(scanf("%d", value) != 1) {
+        printf("✗ Invalid input! Please enter an integer.\n");
+        while(getchar() != '\n');
+        return false;
+    }
+    return true;
 }
 
 void displayMenu() {

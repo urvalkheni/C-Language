@@ -1,13 +1,17 @@
 /*
- * Advanced Loop Demonstrator & Iterator v2.1
- * Modified: 2025-11-15
+ * Advanced Loop Demonstrator & Iterator v2.2
+ * Modified: 2025-12-30
  * Features: Multiple loop types, patterns, algorithms,
  *           loop analysis and performance comparison
+ * ENHANCEMENTS: Robust input validation, bounds checking,
+ *               improved error handling for all operations
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
+#include <limits.h>
 
 void basicWhileLoop();
 void doWhileLoop();
@@ -25,6 +29,8 @@ void reverseCountLoop();
 void sumSeriesLoop();
 void loopComparison();
 void displayMenu();
+bool getValidInteger(const char* prompt, int* value);
+bool validateRange(int value, int min, int max, const char* fieldName);
 
 int main() {
     int choice;
@@ -110,12 +116,8 @@ void displayMenu() {
 
 void basicWhileLoop() {
     int n, i = 1;
-    printf("\nEnter limit: ");
-    scanf("%d", &n);
-    if(n <= 0) {
-        printf("Invalid limit (must be > 0).\n");
-        return;
-    }
+    if(!getValidInteger("\nEnter limit: ", &n)) return;
+    if(!validateRange(n, 1, INT_MAX, "Limit")) return;
     
     printf("\n--- Basic While Loop ---\n");
     printf("Counting from 1 to %d:\n", n);
@@ -129,12 +131,8 @@ void basicWhileLoop() {
 
 void doWhileLoop() {
     int n, i = 1;
-    printf("\nEnter limit: ");
-    scanf("%d", &n);
-    if(n <= 0) {
-        printf("Invalid limit (must be > 0).\n");
-        return;
-    }
+    if(!getValidInteger("\nEnter limit: ", &n)) return;
+    if(!validateRange(n, 1, INT_MAX, "Limit")) return;
 
     printf("\n--- Do-While Loop ---\n");
     printf("Counting (executes at least once):\n");
@@ -148,12 +146,8 @@ void doWhileLoop() {
 
 void forLoop() {
     int n;
-    printf("\nEnter limit: ");
-    scanf("%d", &n);
-    if(n <= 0) {
-        printf("Invalid limit (must be > 0).\n");
-        return;
-    }
+    if(!getValidInteger("\nEnter limit: ", &n)) return;
+    if(!validateRange(n, 1, INT_MAX, "Limit")) return;
 
     printf("\n--- For Loop ---\n");
     printf("Counting from 1 to %d:\n", n);
@@ -393,4 +387,25 @@ void loopComparison() {
     printf("\nAll results: %lld (should be same)\n", sum1);
 }
 
-/* Version note: updated 2025-11-17 — minor header/metadata bump */
+bool getValidInteger(const char* prompt, int* value) {
+    printf("%s", prompt);
+    if(scanf("%d", value) != 1) {
+        printf("✗ Invalid input! Please enter an integer.\n");
+        while(getchar() != '\n');
+        return false;
+    }
+    return true;
+}
+
+bool validateRange(int value, int min, int max, const char* fieldName) {
+    if(value < min || value > max) {
+        printf("✗ %s must be between %d and %d.\n", fieldName, min, max);
+        return false;
+    }
+    return true;
+}
+
+/* Version history:
+   v2.2 (2025-12-30): Added robust input validation, bounds checking, error handling
+   v2.1 (2025-11-15): Loop performance comparison feature
+*/
