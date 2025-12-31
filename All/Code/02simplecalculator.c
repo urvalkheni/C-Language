@@ -96,6 +96,23 @@ int main() {
                 printf("Memory value: %.6f\n", memory);
                 printf("Last result: %.6f\n", lastResult);
                 break;
+            case 9: {
+                printf("\n=== EXPRESSION EVALUATOR ===\n");
+                printf("Format: 'number operator number' (e.g., 5 + 3)\n");
+                printf("Enter expression: ");
+                char expr[100];
+                clearInputBuffer();
+                fgets(expr, sizeof(expr), stdin);
+                double res = 0;
+                if(evaluateExpression(expr, &res)) {
+                    printf("Result: %.6f\n", res);
+                    lastResult = res;
+                    addToHistory(expr, res);
+                } else {
+                    printf("Error: Invalid expression format!\n");
+                }
+                break;
+            }
             default:
                 printf("Invalid choice! Please try again.\n");
         }
@@ -115,8 +132,7 @@ void displayMenu() {
     printf("5. Show Calculation History\n");
     printf("6. Clear History\n");
     printf("7. Show Last Result\n");
-    printf("8. Calculator Statistics\n");
-    printf("0. Exit\n");
+    printf("8. Calculator Statistics\n");    printf("9. Expression Evaluator (NEW!)\n");    printf("0. Exit\n");
     printf("==========================================\n");
 }
 
@@ -572,4 +588,32 @@ double radianToDegree(double radian) {
 void clearInputBuffer() {
     int c;
     while((c = getchar()) != '\n' && c != EOF);
+}
+
+// NEW FEATURE: Expression Evaluator
+int evaluateExpression(const char* expr, double* result) {
+    // Simple expression parser for basic operations
+    double num1 = 0, num2 = 0;
+    char op = ' ';
+    int parsed = sscanf(expr, "%lf %c %lf", &num1, &op, &num2);
+    
+    if(parsed != 3) return 0; // Invalid format
+    
+    switch(op) {
+        case '+':
+            *result = num1 + num2;
+            return 1;
+        case '-':
+            *result = num1 - num2;
+            return 1;
+        case '*':
+            *result = num1 * num2;
+            return 1;
+        case '/':
+            if(num2 == 0) return 0; // Division by zero
+            *result = num1 / num2;
+            return 1;
+        default:
+            return 0;
+    }
 }

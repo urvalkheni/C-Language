@@ -63,6 +63,8 @@ int main() {
         }
         
         if(choice == 0) break;
+        
+        switch(choice) {
             case 1:
                 printf("\n--- Iterative Reversal ---\n");
                 printf("Enter a number: ");
@@ -266,6 +268,13 @@ long long reverseIterative(long long n) {
     while(n != 0) {
         rev = rev * 10 + (n % 10);
         n /= 10;
+    }
+    
+    // Log operation
+    FILE* logFile = fopen("reversal_operations.log", "a");
+    if(logFile != NULL) {
+        fprintf(logFile, "[ITERATIVE] Reversed %lld to %lld\n", original, isNegative ? -rev : rev);
+        fclose(logFile);
     }
     
     return isNegative ? -rev : rev;
