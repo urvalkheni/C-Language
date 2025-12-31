@@ -325,6 +325,13 @@ void displayNumberProperties(long long n) {
     }
     printf("Digital root: %lld\n", digitalRoot);
     
+    // Bitwise analysis for positive numbers
+    if(n > 0 && n <= 1000000) {
+        printf("\nBitwise Analysis:\n");
+        printf("- Bit count (popcount): %d\n", __builtin_popcountll(n));
+        printf("- Is Power of 2: %s\n", (n & (n-1)) == 0 ? "YES" : "NO");
+        printf("- Trailing zeros in binary: %d\n", __builtin_ctzll(n));\n    }
+    
     // Divisibility rules
     printf("\nDivisibility tests:\n");
     if(n % 2 == 0) printf("- Divisible by 2\n");
