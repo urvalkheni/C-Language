@@ -21,6 +21,7 @@ void displayPrimeMenu();
 bool isPrimeBasic(long long n);
 bool isPrimeOptimized(long long n);
 bool isPrimeMillerRabin(long long n, int k);
+bool isSophieGermainPrime(long long n);
 void sieveOfEratosthenes(int limit);
 void findPrimeFactors(long long n);
 void findAllFactors(long long n);
@@ -146,6 +147,24 @@ int main() {
                 printf("Enter number for performance test: ");
                 scanf("%lld", &number);
                 primePerformanceTest(number);
+                break;
+            case 12:
+                printf("Enter number to test for Sophie Germain Prime: ");
+                scanf("%lld", &number);
+                if(number <= 0) {
+                    printf("Please enter a positive number.\n");
+                    break;
+                }
+                printf("\n=== SOPHIE GERMAIN PRIME TEST ===\n");
+                if(isSophieGermainPrime(number)) {
+                    printf("%lld is a SOPHIE GERMAIN PRIME ★\n", number);
+                    printf("Both %lld and %lld (2×%lld+1) are prime!\n", number, 2*number+1, number);
+                } else if(isPrimeOptimized(number)) {
+                    printf("%lld is prime but NOT a Sophie Germain Prime\n", number);
+                    printf("%lld is not prime.\n", 2*number+1);
+                } else {
+                    printf("%lld is NOT a Sophie Germain Prime\n", number);
+                }
                 break;
             case 12:
                 printf("Enter number for number theory analysis: ");
@@ -658,4 +677,13 @@ long long gcd(long long a, long long b) {
         a = temp;
     }
     return a;
+}
+
+// Check if a number is a Sophie Germain Prime
+// A Sophie Germain Prime p is a prime where 2p+1 is also prime (safe prime)
+bool isSophieGermainPrime(long long n) {
+    if(!isPrimeOptimized(n)) return false;
+    long long safeNum = 2 * n + 1;
+    if(safeNum > 9223372036854775800LL) return false; // Prevent overflow
+    return isPrimeOptimized(safeNum);
 }       
