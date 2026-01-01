@@ -22,6 +22,7 @@ long long reverseIterative(long long n);
 long long reverseRecursive(long long n, long long rev);
 long long reverseString(long long n);
 long long reverseArray(long long n);
+char* reverseStringInput(const char* str);
 bool isPalindrome(long long n);
 bool isPalindromicPrime(long long n);
 bool isPrime(long long n);
@@ -39,11 +40,28 @@ void batchPalindromeCheck(long long start, long long end);
 void reverseStatistics(long long n);
 void displayMenu();
 
+// Function to reverse a string input
+char* reverseStringInput(const char* str) {
+    if(str == NULL) return NULL;
+    int len = strlen(str);
+    char* reversed = (char*)malloc((len + 1) * sizeof(char));
+    if(reversed == NULL) {
+        printf("Memory allocation failed!\n");
+        return NULL;
+    }
+    for(int i = 0; i < len; i++) {
+        reversed[i] = str[len - 1 - i];
+    }
+    reversed[len] = '\0';
+    return reversed;
+}
+
 // Main function
 int main() {
     int choice;
     long long num, num2;
     int base, iterations;
+    char stringInput[100];
     
     printf("╔════════════════════════════════════════════════════════════╗\n");
     printf("║   Advanced Number Reversal & Palindrome Analyzer v2.0     ║\n");
@@ -94,10 +112,16 @@ int main() {
                 break;
                 
             case 5:
-                printf("\n--- Palindrome Checker ---\n");
-                printf("Enter a number: ");
-                scanf("%lld", &num);
-                if(isPalindrome(num)) {
+                printf("\n--- String Reversal Feature ---\n");
+                printf("Enter a text string (max 100 chars): ");
+                scanf(" %99[^\n]", stringInput);
+                char* reversed = reverseStringInput(stringInput);
+                if(reversed != NULL) {
+                    printf("Original string: %s\n", stringInput);
+                    printf("Reversed string: %s\n", reversed);
+                    free(reversed);
+                }
+                break;
                     printf("%lld is a PALINDROME! ✓\n", num);
                 } else {
                     printf("%lld is NOT a palindrome.\n", num);

@@ -71,6 +71,8 @@ int main() {
         }
         
         if(choice == 0) break;
+        
+        switch(choice) {
             case 1:
                 printf("\n--- Leap Year Checker ---\n");
                 printf("Enter year: ");
